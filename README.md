@@ -1,6 +1,8 @@
 # EXP-3-B-Automatic-street-light-systems-using-LDR-sensor
 
 ## Aim: 
+To control an LED based on ambient ligth intensity using an LDR and Arduino UNO
+
 
 ## Hardware / Software Tools required:
 
@@ -11,6 +13,8 @@
 	Photoresistor
   
 ## Circuit Diagram:
+
+<img width="1455" height="780" alt="image" src="https://github.com/user-attachments/assets/9b44e251-1e1a-4caf-a67a-636a61449281" />
 
 
 ## Theory :
@@ -65,11 +69,40 @@ o	The middle point (between LDR and resistor) connects to the Arduino analog inp
 •	Save the Circuit: Click "Save" to keep your circuit design and code for future use.
 
 ## Code:
+``` c++ program
+// C++ code
+//
+int sensorValue = 0;
 
+void setup()
+{
+  pinMode(A0, INPUT);
+  Serial.begin(9600);
 
+  pinMode(9, OUTPUT);
+}
+
+void loop()
+{
+  // read the value from the sensor
+  sensorValue = analogRead(A0);
+  // print the sensor reading so you know its range
+  Serial.println(sensorValue);
+  // map the sensor reading to a range for the LED
+  analogWrite(9, map(sensorValue, 0, 1023, 255, 0));
+  delay(100); // Wait for 100 millisecond(s)
+}
+```
 
 ## Output:
- 
+
+
+
+https://github.com/user-attachments/assets/f392008f-5d83-4bfe-81fc-8df31d9173fc
+
+
+
 
 
 ## Result:
+Thus the Automatic street light systems using LDR sensor stimulated by Tinkercad
